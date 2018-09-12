@@ -1,0 +1,15 @@
+Definir vetor
+
+  Termo termo[];
+  
+  //cria o vetor termos q n aponta pra nada
+  
+Implementação do vetor
+
+  termos = new Termo[4];
+  
+  //cria um vetor com 4 termos null
+  
+Atribuir um objeto a um termo
+
+  termos[1] = new Termo();
