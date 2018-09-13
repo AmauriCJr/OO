@@ -1,6 +1,6 @@
 Definir vetor
 
-  Termo termo[];
+  Termo termos[];
   
   //cria o vetor termos q n aponta pra nada
   
