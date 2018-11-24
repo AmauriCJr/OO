@@ -10,7 +10,10 @@ public class Questao {
 		void criar() {
 		
 		System.out.println("to aqui");
-		String nome = JOptionPane.showInputDialog("Informe o nome do formulário");
+		String nome = JOptionPane.showInputDialog("Informe o nome do formulário:");
+		
+		if (!"fim".equals(nome))								//não deseja criar
+		{
 		
 		String nomedapasta = String.format("C:\\Users\\amaur\\OneDrive\\Área de Trabalho\\Teste\\%s", nome); //cria uma variavel com o caminho do arquivo e o nome especifico do formulario
 		//é tipo o sprintf em C
@@ -22,10 +25,7 @@ public class Questao {
 		for (int i = 1; i < 10000; i++) 						//Laço infinito para criar quantas perguntas o usuário desejar
 		{
 		
-		
-		
-		
-			String texto = JOptionPane.showInputDialog("Informe o texto a ser escrito");
+			String texto = JOptionPane.showInputDialog("Informe a questão desejada:");
 		
 			if(texto.equals("fim"))									//Condicional que quebra o laço
 			{
@@ -40,7 +40,7 @@ public class Questao {
 			
 			
 			try {												//O eclipse que sugeriu colocar isso aqui pró código rodar
-				if (file.createNewFile())						
+				if (file.createNewFile())						//Checa se existe um arquivo com esse nome				
 					{
 						System.out.println("Arquivo Criado");
 					} else {
@@ -53,6 +53,7 @@ public class Questao {
 			Escreve arquivo = new Escreve();					//Cria uma referência pra classe que escreve
 			arquivo.escreve(texto, nomedoarquivo);				//Escreve no arquivo
 		}
-		
+		}
 	}
 }
+
