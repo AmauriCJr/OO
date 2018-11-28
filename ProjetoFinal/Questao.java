@@ -12,8 +12,6 @@ public class Questao {
 		System.out.println("to aqui");
 		String nome = JOptionPane.showInputDialog("Informe o nome do formulário:");
 		
-		if (!"fim".equals(nome))								//não deseja criar
-		{
 		
 		String nomedapasta = String.format("C:\\Users\\amaur\\OneDrive\\Área de Trabalho\\Teste\\%s", nome); //cria uma variavel com o caminho do arquivo e o nome especifico do formulario
 		//é tipo o sprintf em C
@@ -52,8 +50,6 @@ public class Questao {
 		 
 			Escreve arquivo = new Escreve();					//Cria uma referência pra classe que escreve
 			arquivo.escreve(texto, nomedoarquivo);				//Escreve no arquivo
-		}
-		}
+		}	
 	}
 }
-
