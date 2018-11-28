@@ -3,6 +3,7 @@ import javax.swing.JOptionPane;
 import java.io.FileReader;
 import java.io.File;
 
+
 public class Responder {
 
 
@@ -14,10 +15,15 @@ public class Responder {
 		
 		String lido = "";
 			
-		System.out.println("agora to aqui");
 		String nome = JOptionPane.showInputDialog("Informe o nome do formulário que deseja responder:");
 		
-		if (!"fim".equals(nome))						//não deseja responder
+		String nomedaquestao = String.format("C:\\Users\\amaur\\OneDrive\\Área de Trabalho\\Teste\\%s", nome);
+		
+		File pasta =new File(nomedaquestao);
+		
+		boolean teste = pasta.exists();							//cria uma variavel pra testar se a pasta existe
+		
+		if(teste == true)										//testa se a pasta existe
 		{
 		
 		String respostatxt = "";
@@ -27,8 +33,9 @@ public class Responder {
 		{
 			lido = "";
 		
-			String nomedaquestao = String.format("C:\\Users\\amaur\\OneDrive\\Área de Trabalho\\Teste\\%s\\%s_Questao_%d.txt",nome, nome, i); //cria uma variavel com o caminho do arquivo e o nome especifico do formulario
+			nomedaquestao = String.format("C:\\Users\\amaur\\OneDrive\\Área de Trabalho\\Teste\\%s\\%s_Questao_%d.txt",nome, nome, i); //cria uma variavel com o caminho do arquivo e o nome especifico do formulario
 			//é tipo o sprintf em C
+			
 			
 			
 			File file = new File(nomedaquestao);				//Cria o arquivo com o nome escolhido para colocar as respostas
@@ -59,31 +66,36 @@ public class Responder {
 			
 		}
 		
+		
 		for (int i = 1; i < 10000; i++) 
 		{
 		
-		String nomedaquestao = String.format("C:\\Users\\amaur\\OneDrive\\Área de Trabalho\\Teste\\%s\\Respostas_%d.txt",nome, i);
+		String arquivoresposta = String.format("C:\\Users\\amaur\\OneDrive\\Área de Trabalho\\Teste\\%s\\Respostas_%d.txt",nome, i);
 		
-		File file = new File(nomedaquestao);
+		File file = new File(arquivoresposta);
 		
-		try {												//O eclipse que sugeriu colocar isso aqui pró código rodar
+		try {									
 			if (file.createNewFile())						
 				{
 					System.out.println("Arquivo Criado");
 					Escreve arquivo = new Escreve();					//Cria uma referência pra classe que escreve
-					arquivo.escreve(respostatxt, nomedaquestao);				//Escreve no arquivo
+					arquivo.escreve(respostatxt, arquivoresposta);				//Escreve no arquivo
 					break;
 				} else {
 					System.out.println("Já existe um arquivo com esse nome");
 				}
 		} catch (IOException e) {
-		e.printStackTrace();							//Eclipse tb sugeriu isso aqui
+		e.printStackTrace();					
 		}
 		}
 		
 		
-		
+		}
+		else {
+			JOptionPane.showMessageDialog(null, "Formulário não existe");
+			
+		}
 		}
 		
 	}
-}
+
