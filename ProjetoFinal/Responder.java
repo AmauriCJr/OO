@@ -13,6 +13,8 @@ public class Responder {
 		
 		char [] lidochar = new char[100];
 		
+		String tipo;
+		
 		String lido = "";
 			
 		String nome = JOptionPane.showInputDialog("Informe o nome do formulário que deseja responder:");
@@ -48,9 +50,17 @@ public class Responder {
 						
 				ler.read(lidochar);
 					
+				for(char c : lidochar) {
+					tipo = lido + c;
+					if(c == '^')
+						break;
+				}
 					      
-				for(char c : lidochar)
+				for(char c : lidochar) {
 					lido = lido + c;
+					if(c == '^')
+						lido ="";
+				}
 						
 						
 				String resposta = JOptionPane.showInputDialog(lido);
@@ -98,4 +108,3 @@ public class Responder {
 		}
 		
 	}
-
